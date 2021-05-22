@@ -1,0 +1,32 @@
+<form [formGroup]="formulario">
+    <ul>
+        <br>
+        <li>
+            <label>Título</label>
+            <input type="text" formControlName="titulo">
+            <div *ngIf="inputs.titulo.errors?.required && inputs.titulo.touched">Es necesario ingresar un título</div>
+        </li>
+        <br>
+        <li>
+            <label>Estado</label>
+            <select class="tipo" formControlName="estado">
+                <option value="">Selecciona un estado</option>
+                <option value="1">Abierto</option>
+                <option value="2">En proceso</option>
+                <option value="3">Cerrado</option>
+            </select>
+            <div *ngIf="inputs.estado.errors?.required && inputs.estado.touched">Es necesario seleccionar un estado</div>
+        </li>
+        <br>
+        <li>
+            <label>Descripción</label>
+            <input type=text formControlName="descripcion">
+            <div *ngIf="inputs.descripcion.errors?.required && inputs.descripcion.touched">Es necesario ingresar una descripción</div>
+        </li>
+        <br>
+        <li>
+            <button [disabled]="formulario.invalid" type="button" (click)="Crear()" [routerLink]="['/listanotas']" routerLinkActive="router-link-active">Actualizar</button>
+        </li>
+    </ul>
+</form>
+
